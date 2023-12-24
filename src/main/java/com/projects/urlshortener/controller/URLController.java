@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,15 +29,26 @@ public class URLController {
         this.urlService = urlService;
     }
 
+    
     @PostMapping("/api/shorten")
-    public ResponseEntity<String> shortenURL(@RequestBody URLDto urlDto) {
-        if (urlDto == null || urlDto.url() == null) {
+    public ResponseEntity<String> shortenURL(@RequestParam("url") String url) {
+        if (url == null || url.length() == 0) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        log.info("Shortening request for URL: " + urlDto.url());
-        var shortURL = urlService.shortenURL(urlDto.url());
+        log.info("Shortening request for URL: " + url);
+        var shortURL = urlService.shortenURL(url);
         return ResponseEntity.ok(shortURL);
     }
+    
+    // @PostMapping("/api/shorten")
+    // public ResponseEntity<String> shortenURL(@RequestBody URLDto urlDto) {
+    //     if (urlDto == null || urlDto.url() == null) {
+    //         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    //     }
+    //     log.info("Shortening request for URL: " + urlDto.url());
+    //     var shortURL = urlService.shortenURL(urlDto.url());
+    //     return ResponseEntity.ok(shortURL);
+    // }
 
     @GetMapping("/{short_code}")
     public ResponseEntity<Void> redirect(@PathVariable("short_code") String shortCode, HttpServletResponse httpServletResponse) {

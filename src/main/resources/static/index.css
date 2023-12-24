@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30em;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#shortenForm {
+    text-align: center;
+}
+
+#longURL {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+button[type="submit"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}

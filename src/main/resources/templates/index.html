@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>URL Shortener</title>
-    <script th:src="@{/webjars/htmx.org/dist/htmx.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{../static/index.css}">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org/dist/htmx.js" defer></script>
 </head>
-<body>
-    <form id="shortenForm" hx-post="/shorten" hx-target="#shortenedURL">
-        <input type="text" id="longURL" placeholder="Paste your URL here" hx-post="true" name="longURL" />
-        <button type="submit" hx-post="true">Shorten</button>
-    </form>
 
-    <div id="shortenedURL">
-        <p th:text="${shortenedURL} ? 'Your Shortened URL: ' + ${shortenedURL} : ''"></p>
-        <input type="text" th:value="${shortenedURL}" th:if="${shortenedURL}" readonly />
-        <button th:if="${shortenedURL}" onclick="copyToClipboard('${shortenedURL}')">Copy</button>
-    </div>
+<body>
+    <h1>URL Shortener</h1>
+    <form id="shortenForm" hx-post="/api/shorten" hx-target="#short-url">
+        <input type="text" id="longURL" placeholder="Enter URL" name="url" />
+        <button type="submit">Shorten</button>
+    </form>
+    <p id="short-url"></p>    
 </body>
 </html>
