@@ -1,4 +1,4 @@
-package com.proejcts.utils;
+package com.projects.utils;
 
 public class BaseURLExtractor {
 

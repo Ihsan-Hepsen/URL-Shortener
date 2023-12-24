@@ -1,4 +1,4 @@
-package com.proejcts.urlshortener.domain;
+package com.projects.urlshortener.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,16 +15,16 @@ public class URL {
     private Long id;
     private String longURL;
     @Column(unique = true)
-    private String shortURL;
+    private String shortCode;
 
     public URL() {
         this.longURL = null;
-        this.shortURL = null;
+        this.shortCode = null;
     }
 
     public URL(String url) {
         this.longURL = url;
-        this.shortURL = null;
+        this.shortCode = null;
     }
 
 
@@ -44,12 +44,12 @@ public class URL {
         this.longURL = longURL;
     }
 
-    public String getShortURL() {
-        return shortURL;
+    public String getShortCode() {
+        return shortCode;
     }
 
-    public void setShortURL(String shortURL) {
-        this.shortURL = shortURL;
+    public void setShortCode(String shortURL) {
+        this.shortCode = shortURL;
     }
 
     

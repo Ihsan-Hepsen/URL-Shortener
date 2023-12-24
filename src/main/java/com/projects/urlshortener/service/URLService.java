@@ -1,8 +1,10 @@
-package com.proejcts.urlshortener.service;
+package com.projects.urlshortener.service;
 
 import java.util.Optional;
+
+import com.projects.urlshortener.domain.URL;
+
 import java.util.List;
-import com.proejcts.urlshortener.domain.URL;
 
 
 public interface URLService {
