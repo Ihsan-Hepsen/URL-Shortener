@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.proejcts.urlshortener.domain.URL;
 import com.proejcts.urlshortener.repository.URLRepository;
+import com.proejcts.utils.BaseURLExtractor;
+import com.proejcts.utils.ShortCodeGenerator;
+
 
 @Service
 public class URLServiceImpl implements URLService {
@@ -33,8 +36,18 @@ public class URLServiceImpl implements URLService {
     }
 
     @Override
-    public String shortenURL(String url) {
-        return "";
+    public String shortenURL(String longURL) {
+        log.debug("Shortening URL for: " + longURL);
+        String shortCode = ShortCodeGenerator.generateShortCode(longURL);
+        String baseURL = BaseURLExtractor.extractBaseURL(longURL);
+        String shortURL = baseURL + "/" + shortCode;
+        
+        URL url = new URL(longURL);
+        url.setShortURL(shortURL);
+        urlRepository.save(url);
+
+        log.debug("Shortening completed: " + shortURL + ". Short code: " + shortCode);
+        return shortURL;
     }
 
     @Override
