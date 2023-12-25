@@ -14,6 +14,4 @@ Simple URL shortener website for long links you may have.
 - CSS
 
 ## Demo 🚀
-<video width="640" height="480" controls>
-  <source src="./demo.mp4" type="video/mp4">
-</video>
+https://github.com/Ihsan-Hepsen/URL-Shortener/assets/68743463/9dd9d10b-c125-4c35-a5ce-0711e16e92c2
