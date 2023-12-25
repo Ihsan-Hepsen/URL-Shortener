@@ -14,6 +14,8 @@ Simple URL shortener website for long links you may have.
 - CSS
 
 ## Demo 🚀
-<video width="640" height="480" controls>
+<!-- <video width="640" height="480" controls>
   <source src="./demo.mp4" type="video/mp4">
-</video>
+</video> -->
+
+![Project Demo](./URL-shortener.gif)
